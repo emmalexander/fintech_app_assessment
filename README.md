@@ -24,6 +24,5 @@ A high-fidelity Flutter implementation of a modern, dark-themed e-wallet dashboa
 
 ## Demo
 
-*(Add your emulator/simulator video or GIF recording below)*
 
 ![Demo Recording Placeholder](video.gif)
