@@ -33,4 +33,4 @@ A high-fidelity Flutter implementation of a modern, dark-themed e-wallet dashboa
 ## Demo
 
 
-![Demo Recording Placeholder](assets/showcase/demo.mov)
+![Demo Recording Placeholder](assets/showcase/demo.mp4)
