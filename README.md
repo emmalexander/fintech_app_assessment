@@ -32,4 +32,4 @@ A high-fidelity Flutter implementation of a modern, dark-themed e-wallet dashboa
 
 ## Demo
 
-<video src="assets/showcase/demo.mp4" controls autoplay muted loop width="100%"></video>
+https://github.com/user-attachments/assets/3e14e2bc-244d-4f86-b463-bd976959459a
