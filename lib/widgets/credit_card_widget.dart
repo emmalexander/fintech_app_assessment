@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import '../models/card_model.dart';
 import 'svg_icons.dart';
 
@@ -15,12 +16,22 @@ class CreditCardWidget extends StatelessWidget {
       height: 220,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: const Color(0xFF1E1E1E), // Dark matte background
+        color: const Color(0xFF1E1E1E),
+        border: GradientBoxBorder(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFFE5E4E4).withAlpha(100),
+              Color(0xFF000000).withAlpha(100),
+            ],
+          ),
+          width: 1,
+        ),
         image: const DecorationImage(
-          // Subtle noise/grain texture
-          image: AssetImage(ImagePaths.cardTexture), // Subtle texture
+          image: AssetImage(ImagePaths.cardTexture),
           fit: BoxFit.cover,
-          opacity: 0.1,
+          opacity: 0.4,
         ),
         boxShadow: [
           BoxShadow(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'svg_icons.dart';
 
 class BalanceCard extends StatelessWidget {
@@ -11,11 +12,22 @@ class BalanceCard extends StatelessWidget {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: const Color(0xFF1E1E1E),
+        border: GradientBoxBorder(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFFE5E4E4).withAlpha(100),
+              Color(0xFF000000).withAlpha(100),
+            ],
+          ),
+          width: 1,
+        ),
         borderRadius: BorderRadius.circular(12),
         image: const DecorationImage(
           image: AssetImage(ImagePaths.cardTexture),
           fit: BoxFit.cover,
-          opacity: 0.2,
+          opacity: 0.4,
         ),
       ),
       child: Column(
