@@ -1,6 +1,7 @@
 import 'package:fintech_app_assessment/providers/bank_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:provider/provider.dart';
 import '../models/transaction_model.dart';
 import '../widgets/svg_icons.dart';
@@ -196,7 +197,17 @@ class TransactionListItem extends StatelessWidget {
                   ? const Color(0xFF1E1E1E)
                   : const Color(0xFF222222),
               border: useAssetIcons
-                  ? Border.all(color: Colors.white12, width: 1)
+                  ? GradientBoxBorder(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color(0xFFE5E4E4).withAlpha(100),
+                          Color(0xFF000000).withAlpha(100),
+                        ],
+                      ),
+                      width: 1,
+                    )
                   : null,
             ),
             child: Center(
