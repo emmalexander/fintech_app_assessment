@@ -87,3 +87,39 @@ class SvgIcons {
   <circle cx="12" cy="12" r="3"/>
 </svg>''';
 }
+
+class SvgPaths {
+  static const String mastercard = 'assets/icons/mastercard.svg';
+  static const String notifications = 'assets/icons/notifications-icon.svg';
+  static const String qrcode = 'assets/icons/qrcode-icon.svg';
+  static const String billpay = 'assets/icons/billpay-icon.svg';
+  static const String donations = 'assets/icons/donations-icon.svg';
+  static const String deposit = 'assets/icons/deposit-icon.svg';
+  static const String more = 'assets/icons/more-icon.svg';
+  static const String appNotifications = 'assets/icons/appnotifications.svg';
+  static const String cardOnlineShopping =
+      'assets/icons/cardonlineshopping.svg';
+  static const String cardTransactions = 'assets/icons/cardtransactions.svg';
+  static const String changePin = 'assets/icons/changepin.svg';
+  static const String countries = 'assets/icons/countries.svg';
+  static const String creditCard = 'assets/icons/creditcard.svg';
+  static const String eStatement = 'assets/icons/estatement.svg';
+  static const String eWallet = 'assets/icons/ewallet.svg';
+  static const String freezeCard = 'assets/icons/freezecard.svg';
+  static const String language = 'assets/icons/language.svg';
+  static const String logout = 'assets/icons/logout.svg';
+  static const String nfcIcon = 'assets/icons/nfcicon.svg';
+  static const String onlineShopping = 'assets/icons/onlineshopping.svg';
+  static const String qrPayment = 'assets/icons/qrpayment.svg';
+  static const String settings = 'assets/icons/settings.svg';
+  static const String tapPay = 'assets/icons/tappay.svg';
+  static const String addIcon = 'assets/icons/addicon.svg';
+  static const String reveal = 'assets/icons/reveal.svg';
+  static const String chipNFC = 'assets/icons/chip-nfc.svg';
+}
+
+class ImagePaths {
+  static const String cardTexture = 'assets/images/card-texture.png';
+  static const String avatarImage = 'assets/images/Avatar Image.png';
+  static const String chip = 'assets/images/chip.png';
+}

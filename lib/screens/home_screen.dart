@@ -14,21 +14,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
-  final List<Widget> _tabs = const [
-    HomeTab(),
-    DashboardTab(),
-    CardsTab(),
-  ];
+  final List<Widget> _tabs = const [HomeTab(), DashboardTab(), CardsTab()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF151515),
       drawer: const ProfileDrawer(),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _tabs,
-      ),
+      body: IndexedStack(index: _currentIndex, children: _tabs),
       bottomNavigationBar: _buildBottomNavBar(),
     );
   }
@@ -74,12 +67,12 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 4),
           Text(
             label,
-            style: TextStyle(fontFamily: 'Arimo', 
+            style: TextStyle(
               color: isSelected ? const Color(0xFF0D7BFF) : Colors.white54,
               fontSize: 12,
               fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
             ),
-          )
+          ),
         ],
       ),
     );

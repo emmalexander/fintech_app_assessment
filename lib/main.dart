@@ -6,9 +6,7 @@ import 'screens/home_screen.dart';
 void main() {
   runApp(
     MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => BankProvider()),
-      ],
+      providers: [ChangeNotifierProvider(create: (_) => BankProvider())],
       child: const MyApp(),
     ),
   );
@@ -24,11 +22,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF151515),
+        scaffoldBackgroundColor: const Color(0xFF1C1C1D),
         colorScheme: const ColorScheme.dark(
-          primary: Color(0xFF0D7BFF),
+          primary: Color(0xFF0047B3),
           surface: Color(0xFF1E1E1E),
         ),
+        fontFamily: 'Arimo',
         useMaterial3: true,
       ),
       home: const HomeScreen(),

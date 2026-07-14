@@ -18,7 +18,7 @@ class CreditCardWidget extends StatelessWidget {
         color: const Color(0xFF1E1E1E), // Dark matte background
         image: const DecorationImage(
           // Subtle noise/grain texture
-          image: AssetImage('assets/images/card-texture.png'), // Subtle texture
+          image: AssetImage(ImagePaths.cardTexture), // Subtle texture
           fit: BoxFit.cover,
           opacity: 0.1,
         ),
@@ -44,27 +44,36 @@ class CreditCardWidget extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        SvgPicture.string(SvgIcons.chip, width: 40),
+                        Image.asset(ImagePaths.chip, width: 40),
                         const SizedBox(width: 12),
                         if (card.tapPayEnabled)
-                          SvgPicture.string(SvgIcons.contactless, width: 24, colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+                          SvgPicture.asset(
+                            SvgPaths.nfcIcon,
+                            height: 24,
+                            colorFilter: const ColorFilter.mode(
+                              Colors.white,
+                              BlendMode.srcIn,
+                            ),
+                          ),
                       ],
                     ),
-                    SvgPicture.asset('assets/icons/mastercard.svg', width: 50),
+                    SvgPicture.asset(SvgPaths.mastercard, width: 50),
                   ],
                 ),
-                
+
                 // Middle: Card Number
                 Text(
-                  card.isRevealed ? card.cardNumber : _maskCardNumber(card.cardNumber),
-                  style: TextStyle(fontFamily: 'Arimo', 
+                  card.isRevealed
+                      ? card.cardNumber
+                      : _maskCardNumber(card.cardNumber),
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
                     letterSpacing: 2.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                
+
                 // Bottom Row: Holder, Valid, CVV
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,11 +98,18 @@ class CreditCardWidget extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SvgPicture.string(SvgIcons.snowflake, width: 40, colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+                    SvgPicture.string(
+                      SvgIcons.snowflake,
+                      width: 40,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.white,
+                        BlendMode.srcIn,
+                      ),
+                    ),
                     const SizedBox(height: 8),
                     Text(
                       'Frozen',
-                      style: TextStyle(fontFamily: 'Arimo', 
+                      style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -121,17 +137,11 @@ class CreditCardWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: TextStyle(fontFamily: 'Arimo', 
-            color: Colors.white54,
-            fontSize: 10,
-          ),
-        ),
+        Text(label, style: TextStyle(color: Colors.white54, fontSize: 10)),
         const SizedBox(height: 4),
         Text(
           value,
-          style: TextStyle(fontFamily: 'Arimo', 
+          style: TextStyle(
             color: Colors.white,
             fontSize: 14,
             fontWeight: FontWeight.w500,

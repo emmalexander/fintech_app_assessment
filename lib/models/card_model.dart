@@ -58,7 +58,8 @@ class CardModel {
       isRevealed: isRevealed ?? this.isRevealed,
       pinChanged: pinChanged ?? this.pinChanged,
       qrPaymentEnabled: qrPaymentEnabled ?? this.qrPaymentEnabled,
-      onlineShoppingEnabled: onlineShoppingEnabled ?? this.onlineShoppingEnabled,
+      onlineShoppingEnabled:
+          onlineShoppingEnabled ?? this.onlineShoppingEnabled,
       tapPayEnabled: tapPayEnabled ?? this.tapPayEnabled,
       balance: balance ?? this.balance,
       spendings: spendings ?? this.spendings,

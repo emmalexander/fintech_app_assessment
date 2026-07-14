@@ -3,61 +3,96 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../providers/bank_provider.dart';
-import '../screens/profile_screen.dart';
-import 'svg_icons.dart';
+import '../widgets/svg_icons.dart';
 
-class ProfileDrawer extends StatelessWidget {
-  const ProfileDrawer({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<BankProvider>();
 
-    return Drawer(
-      backgroundColor: const Color(0xFF1E1E1E), // Dark matching the theme
-      child: SafeArea(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Title
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                'Profile',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+
             // Profile Header
             Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
                 children: [
-                  const SizedBox(height: 20),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ProfileScreen(),
+                  CircleAvatar(
+                    radius: 35,
+                    backgroundColor: Colors.grey[800],
+                    backgroundImage: const AssetImage(ImagePaths.avatarImage),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Tayyab Sohail',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF2C2C2E),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Text(
+                                'UX/UI Designer',
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      );
-                    },
-                    child: CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Colors.grey[800],
-                      backgroundImage: const AssetImage(ImagePaths.avatarImage),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Welcome',
-                    style: TextStyle(color: Colors.white, fontSize: 12),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Tayyab Sohail',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
+                        const SizedBox(height: 4),
+                        Text(
+                          'tayyabsohailabd@gmail.com',
+                          style: TextStyle(fontSize: 11),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
+            const SizedBox(height: 40),
 
             Expanded(
               child: ListView(
@@ -73,13 +108,10 @@ class ProfileDrawer extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   _buildSettingCard(SvgPaths.eStatement, 'E-Statement'),
-                  _buildSettingCard(
-                    SvgPaths.creditCard,
-                    'Credit Card', // Reused wallet for cc icon in drawer
-                  ),
+                  _buildSettingCard(SvgPaths.creditCard, 'Credit Card'),
                   _buildSettingCard(SvgPaths.settings, 'Settings'),
 
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 32),
                   Text(
                     'Notification',
                     style: TextStyle(
@@ -92,7 +124,7 @@ class ProfileDrawer extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF252525),
-                      borderRadius: BorderRadius.circular(6),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
@@ -100,14 +132,7 @@ class ProfileDrawer extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        SvgPicture.asset(
-                          SvgPaths.appNotifications,
-                          width: 24,
-                          colorFilter: const ColorFilter.mode(
-                            Color(0xFF0065FF),
-                            BlendMode.srcIn,
-                          ),
-                        ),
+                        SvgPicture.asset(SvgPaths.appNotifications, width: 24),
                         const SizedBox(width: 16),
                         Expanded(
                           child: Text(
@@ -126,7 +151,7 @@ class ProfileDrawer extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 32),
                   Text(
                     'More',
                     style: TextStyle(
