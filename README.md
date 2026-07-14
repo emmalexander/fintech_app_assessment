@@ -22,7 +22,15 @@ A high-fidelity Flutter implementation of a modern, dark-themed e-wallet dashboa
    flutter run
    ```
 
+## Implementation Notes
+
+- **Architecture:** The application's UI is broken down into modular, reusable widgets inside the `lib/widgets/` directory for better code maintainability.
+- **State Management:** Simple state management is implemented using the `provider` package and `ChangeNotifier` to handle mock application data, user balances, and active card states.
+- **Charts:** The interactive spline chart is rendered using the `fl_chart` library.
+- **Assets:** SVG graphics and iconography are loaded via `flutter_svg` and are consolidated in a centralized constants file. A local font family (`Arimo`) is included.
+- **Empty States:** The UI accounts for potential empty lists with dedicated empty state widgets to ensure a smooth user experience even when data is absent.
+
 ## Demo
 
 
-![Demo Recording Placeholder](video.gif)
+![Demo Recording Placeholder](assets/showcase/demo.mov)

@@ -54,8 +54,15 @@ class CardTransactionScreen extends StatelessWidget {
                       'Transactions made with this card\nwill show up here.',
                 )
               else
-                ...provider.activeCardTransactions.map(
-                  (t) => TransactionListItem(transaction: t),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: provider.activeCardTransactions.length,
+                  itemBuilder: (context, index) {
+                    return TransactionListItem(
+                      transaction: provider.activeCardTransactions[index],
+                    );
+                  },
                 ),
             const SizedBox(height: 40),
           ],

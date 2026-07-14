@@ -79,8 +79,16 @@ class HomeTab extends StatelessWidget {
                     'Your recent transactions will appear\nhere once you start spending.',
               )
             else
-              ...provider.transactions.map(
-                (t) => TransactionListItem(transaction: t, useAssetIcons: true),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: provider.transactions.length,
+                itemBuilder: (context, index) {
+                  return TransactionListItem(
+                    transaction: provider.transactions[index],
+                    useAssetIcons: true,
+                  );
+                },
               ),
             const SizedBox(height: 40),
           ],

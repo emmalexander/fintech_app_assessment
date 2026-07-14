@@ -157,6 +157,28 @@ class TransactionListItem extends StatelessWidget {
     this.useAssetIcons = true,
   });
 
+  String _getAssetIconPath(String iconSvg) {
+    switch (iconSvg) {
+      case 'online_shopping':
+        return SvgPaths.cardOnlineShopping;
+      case 'e_wallet':
+        return SvgPaths.eWallet;
+      default:
+        return SvgPaths.cardTransactions;
+    }
+  }
+
+  String _getStringIcon(String iconSvg) {
+    switch (iconSvg) {
+      case 'online_shopping':
+        return SvgIcons.shop;
+      case 'e_wallet':
+        return SvgIcons.wallet;
+      default:
+        return SvgIcons.settings;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = transaction;
@@ -180,11 +202,7 @@ class TransactionListItem extends StatelessWidget {
             child: Center(
               child: useAssetIcons
                   ? SvgPicture.asset(
-                      t.iconSvg == 'online_shopping'
-                          ? SvgPaths.cardOnlineShopping
-                          : (t.iconSvg == 'e_wallet'
-                                ? SvgPaths.eWallet
-                                : SvgPaths.cardTransactions),
+                      _getAssetIconPath(t.iconSvg),
                       width: 24,
                       colorFilter: const ColorFilter.mode(
                         Colors.white,
@@ -192,11 +210,7 @@ class TransactionListItem extends StatelessWidget {
                       ),
                     )
                   : SvgPicture.string(
-                      t.iconSvg == 'online_shopping'
-                          ? SvgIcons.shop
-                          : (t.iconSvg == 'e_wallet'
-                                ? SvgIcons.wallet
-                                : SvgIcons.settings),
+                      _getStringIcon(t.iconSvg),
                       width: 24,
                       colorFilter: const ColorFilter.mode(
                         Colors.white,

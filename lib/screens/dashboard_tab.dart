@@ -47,8 +47,13 @@ class DashboardTab extends StatelessWidget {
                     'Your activity will appear here\nonce you start making transactions.',
               )
             else
-              ...provider.transactions.map(
-                (t) => TransactionListItem(transaction: t),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: provider.transactions.length,
+                itemBuilder: (context, index) {
+                  return TransactionListItem(transaction: provider.transactions[index]);
+                },
               ),
             const SizedBox(height: 40),
           ],
